@@ -128,6 +128,9 @@
 
         var loadImage = function() {
           var url = $.cloudinary.url(publicId, attributes);
+          if ( url.search('file') > -1 ) {
+            url = url.replace(/file/gi,'http');
+          }
           element.attr('src', url);
         }
 
